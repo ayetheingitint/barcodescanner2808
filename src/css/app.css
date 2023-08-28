@@ -1,0 +1,370 @@
+/* iOS Cordova Tweak */
+.device-cordova.device-ios {
+  height: 100vh;
+}
+
+/* Your app custom styles here */
+
+.centered-container{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+}
+/* Add this CSS to your stylesheet */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:50px;
+}
+#barcode-scanner {
+  position: relative;
+}
+
+#video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+#canvas {
+  display: none; /* You can hide the canvas, as it's used for capturing frames */
+}
+
+/* barcode container */
+
+#toolbar{
+    background-color: #6b6766ce;
+   margin-bottom: 6px
+ 
+}
+.tabbar .tab-link, .tabbar-labels .tab-link{
+
+  color: #000;
+  
+}
+
+.tabbar .tab-link-active, .tabbar-labels .tab-link-active{
+
+ background: #f0a18f55;
+    color: #640d00;
+}
+.scan-rectangle {
+
+	padding: 20px 30px;
+	transition: transform .6s ease-out;
+  position: absolute;
+  width: 250px; /* Adjust the width of the rectangle */
+  height: 140px; /* Adjust the height of the rectangle */
+  top: 40%; /* Position the rectangle vertically in the middle */
+  left: 50%; /* Position the rectangle horizontally in the middle */
+  transform: translate(-50%, -50%); 
+ 
+}
+
+.scan-rectangle .laser {
+  width: 100%;
+  margin-left: -10%;
+  background-color: red;
+  height: 1px;
+  position: absolute;
+  top: -2.5%;
+  z-index:10;
+  -webkit-animation: scanning 3s infinite;
+  -moz-animation: scanning 3s infinite;
+  animation: scanning 3s infinite;
+}
+@keyframes scanning {
+  100% {
+    -webkit-transform: translateY(150px);
+    -moz-transform: translateY(150px);
+    transform: translateY(150px);
+  }
+}
+.scan-rectangle-qr {
+
+	padding: 25px 30px;
+	transition: transform .6s ease-out;
+  position: absolute;
+  width: 200px; /* Adjust the width of the rectangle */
+  height: 200px; /* Adjust the height of the rectangle */
+  top: 40%; /* Position the rectangle vertically in the middle */
+  left: 50%; /* Position the rectangle horizontally in the middle */
+  transform: translate(-50%, -50%); 
+}
+.scan-rectangle-qr .laser {
+  width: 100%;
+  margin-left: -10%;
+  background-color: red;
+  height: 1px;
+  position: absolute;
+  top: -2.5%;
+  z-index:10;
+  -webkit-animation: scanningqr 3s infinite;
+  -moz-animation: scanningqr 3s infinite;
+  animation: scanningqr 3s infinite;
+}
+@keyframes scanningqr {
+  100% {
+    -webkit-transform: translateY(230px);
+    -moz-transform: translateY(230px);
+    transform: translateY(230px);
+  }
+}
+.corner {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  
+	
+	border-color: white; 
+	border-style: solid;
+	content: ' ';
+}
+
+.top-left {
+top: 0; left: 0;
+	border-width: 4px 0 0 4px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.top-right {
+ top: 0; right: 0;
+	border-width: 4px 4px 0 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-left {
+	bottom: 0; left: 0;
+	border-width: 0 0 4px 4px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-right {
+  	bottom: 0; right: 0;
+	border-width: 0 4px 4px 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+/* Mobile-specific styles for the scan rectangle (iPhone and iPad portrait mode) */
+@media (max-width: 768px) {
+  .scan-rectangle {
+   /* Change border color for mobile devices */
+    width: 250px; /* Adjust the width for mobile */
+    height: 140px; /* Adjust the height for mobile */
+    background-image: url("./barcodeimage.png");
+     background-size: 90%; /* Adjust to your needs */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 25px;
+  
+  }
+ 
+  .scan-rectangle .laser{
+  width: 100%;
+  margin-left: -9%;
+  background-color: red;
+  height: 1px;
+  position: absolute;
+  top: -2.5%;
+  z-index:10;
+  -webkit-animation: scanning 3s infinite;
+  -moz-animation: scanning 3s infinite;
+  animation: scanning 3s infinite;
+}
+@keyframes scanning {
+  50% {
+    -webkit-transform: translateY(170px);
+    -moz-transform: translateY(170px);
+    transform: translateY(170px);
+  }
+}
+.scan-rectangle-qr {
+
+	padding: 25px 30px;
+	transition: transform .6s ease-out;
+  position: absolute;
+  width: 200px; /* Adjust the width of the rectangle */
+  height: 170px; /* Adjust the height of the rectangle */
+  top: 40%; /* Position the rectangle vertically in the middle */
+  left: 50%; /* Position the rectangle horizontally in the middle */
+  transform: translate(-50%, -50%); 
+    background-image: url("./qrimage.png");
+     background-size: contain; /* Adjust to your needs */
+      background-repeat: no-repeat;
+      background-position: center;
+}
+.scan-rectangle-qr .laser {
+  width: 100%;
+  margin-left: -10%;
+  background-color: red;
+  height: 1px;
+  position: absolute;
+  top: -2.5%;
+  z-index:10;
+  -webkit-animation: scanningqr 3s infinite;
+  -moz-animation: scanningqr 3s infinite;
+  animation: scanningqr 3s infinite;
+}
+@keyframes scanningqr {
+  50% {
+    -webkit-transform: translateY(230px);
+    -moz-transform: translateY(230px);
+    transform: translateY(230px);
+  }
+}
+}
+
+/* Tablet-specific styles for the scan rectangle (iPad portrait mode) */
+@media (min-width: 768px) and (max-width: 2048px) and (orientation: portrait) {
+  .scan-rectangle {
+   /* Change border color for tablets */
+    width: 530px; /* Adjust the width for tablets */
+    height: 370px; /* Adjust the height for tablets */
+      top:45%;
+         background-image: url("./barcodeimage.png");
+     background-size: 90%; /* Adjust to your needs */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 90px;
+      
+  }
+  .scan-rectangle-qr {
+   /* Change border color for tablets */
+    width: 530px; /* Adjust the width for tablets */
+    height: 450px; /* Adjust the height for tablets */
+    top:45%;
+     background-image: url("./qrimage.png");
+     background-size: contain; /* Adjust to your needs */
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+  .scan-rectangle .laser,.scan-rectangle-qr .laser {
+  width: 100%;
+  margin-left: -5%;
+  background-color: red;
+  height: 2px;
+  position: absolute;
+  top: -2.5%;
+  z-index:10;
+  -webkit-animation: scanning 3s infinite;
+  -moz-animation: scanning 3s infinite;
+  animation: scanning 3s infinite;
+}
+@keyframes scanning {
+  50% {
+    -webkit-transform: translateY(450px);
+    -moz-transform: translateY(450px);
+    transform: translateY(450px);
+  }
+}
+.corner {
+  position: absolute;
+  width: 5px;
+  height: 20px;  
+	border-color: white; 
+	border-style: solid;
+	content: ' ';
+}
+
+.top-left {
+top: 0; left: 0;
+	border-width: 5px 0 0 5px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.top-right {
+ top: 0; right: 0;
+	border-width: 5px 5px 0 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-left {
+	bottom: 0; left: 0;
+	border-width: 0 0 5px 5px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-right {
+  	bottom: 0; right: 0;
+	border-width: 0 5px 5px 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+}
+
+/* Mobile-specific styles for the scan rectangle (iPhone landscape mode) */
+@media (max-width: 2048px) and (orientation: landscape) {
+  .scan-rectangle {
+     /* Change border color for mobile devices */
+    width: 800px; /* Adjust the width for mobile */
+    height: 450px; /* Adjust the height for mobile */
+  
+  }
+   .scan-rectangle-qr {
+     /* Change border color for mobile devices */
+    width: 800px; /* Adjust the width for mobile */
+    height: 550px; /* Adjust the height for mobile */
+  }
+  
+.corner {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  
+	
+	border-color: white; 
+	border-style: solid;
+	content: ' ';
+}
+
+.top-left {
+top: 0; left: 0;
+	border-width: 5px 0 0 5px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.top-right {
+ top: 0; right: 0;
+	border-width: 5px 5px 0 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-left {
+	bottom: 0; left: 0;
+	border-width: 0 0 5px 5px;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+
+.bottom-right {
+  	bottom: 0; right: 0;
+	border-width: 0 5px 5px 0;
+    width: 10%; height: 9%;
+	border-color: rgba(34, 33, 33, 0.41); 
+	border-style: solid;
+}
+}
+
